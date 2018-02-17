@@ -46,6 +46,9 @@
 </script>
 
 <style lang="scss">
+    .navbar {
+        background: transparent;
+    }
     .fncont {
         max-width: 1140px;
         margin: 0 auto;
