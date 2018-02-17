@@ -2,7 +2,7 @@
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
             <router-link class="navbar-item" to="/">
-                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+                <img src="/assets/logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
             </router-link>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
@@ -10,14 +10,7 @@
                 <span></span>
             </div>
         </div>
-
         <div id="navbarExampleTransparentExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="https://bulma.io/">
-                    Home
-                </a>
-            </div>
-
             <div class="navbar-end">
                 <div class="navbar-item">
                     <router-link class="navbar-item" to="/login" activeClass="active" v-if="!user.logged">
@@ -72,6 +65,9 @@
 </script>
 
 <style lang="scss">
+    .navbar {
+        background: #f9f9f9;
+    }
     .navbar-item {
         &.active {
             color: red;
