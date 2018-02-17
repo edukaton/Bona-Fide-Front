@@ -1,5 +1,5 @@
 <template>
-  <section class="fncont checknews">
+  <section class="fncont checknews columns">
     <div class="column is-8">
       <img src="@/assets/articles/article0.png" alt="" class="checknews__img">
       <h2 class="title title--check">Zadania do wykonania:</h2>
@@ -83,16 +83,25 @@
           </div>
           <div class="checknews__yesno">
             <div class="field">
+              <label for="switchColorDefault">Tak</label>
               <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
-              <label for="switchColorDefault">Switch default</label>
+              <label for="switchColorDefault">Nie</label>
             </div>
           </div>
         </div>
+        <div class="checknews__btnsum">
+          <Button text="Następny news"></Button>
+        </div>
+    </div>
+    <div class="column is-4">
+        <RankSmall></RankSmall>
     </div>
   </section>
 </template>
 
 <script>
+  import RankSmall from '@/partials/RankSmall';
+  import Button from '@/components/Button';
   export default {
     data() {
       return {
@@ -100,6 +109,10 @@
         checkSourceShow2: false,
         checkSourceShow3: false
       }
+    },
+    components: {
+      Button,
+      RankSmall
     }
   }
 
@@ -157,6 +170,15 @@
     }
     &__yesno {
       margin-top: 20px;
+      margin-left: 38px;
+      label {
+        font-weight: bold;
+      }
+    }
+    &__btnsum {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
     }
   }
 
