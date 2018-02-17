@@ -4,10 +4,10 @@
       <img src="@/assets/articles/article0.png" alt="" class="checknews__img">
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
-        <label class="checkbox">
+        <div class="checkbox">
           <input type="checkbox" class="big">
           <h3 class="checknews__h">Sprawdź źródło informacji.</h3>
-        </label>
+        </div>
         <div class="checknews__showhide" @click="checkSourceShow1 = !checkSourceShow1">
           {{ (!checkSourceShow1) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
         </div>
@@ -33,10 +33,10 @@
         </div>
       </div>
       <div class="checknews__row">
-        <label class="checkbox">
+        <div class="checkbox">
           <input type="checkbox" class="big">
           <h3 class="checknews__h">Jaki jest cel podanej wiadomości?</h3>
-        </label>
+        </div>
         <div class="checknews__showhide" @click="checkSourceShow2 = !checkSourceShow2">
           {{ (!checkSourceShow2) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
         </div>
@@ -66,10 +66,10 @@
         </div>
       </div>
       <div class="checknews__row">
-          <label class="checkbox">
+          <div class="checkbox">
             <input type="checkbox" class="big">
             <h3 class="checknews__h">Czy na stronie są informacje o autorach? (O nas/Kontakt)</h3>
-          </label>
+          </div>
           <div class="checknews__showhide" @click="checkSourceShow3 = !checkSourceShow3">
             {{ (!checkSourceShow3) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
           </div>
@@ -95,12 +95,16 @@
     </div>
     <div class="column is-4">
         <RankSmall></RankSmall>
+        <DoYouKnow></DoYouKnow>
+        <UserBadge></UserBadge>
     </div>
   </section>
 </template>
 
 <script>
   import RankSmall from '@/partials/RankSmall';
+  import DoYouKnow from '@/partials/DoYouKnow';
+  import UserBadge from '@/partials/UserBadge';
   import Button from '@/components/Button';
   export default {
     data() {
@@ -112,7 +116,9 @@
     },
     components: {
       Button,
-      RankSmall
+      RankSmall,
+      DoYouKnow,
+      UserBadge
     }
   }
 

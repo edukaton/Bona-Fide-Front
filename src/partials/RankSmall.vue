@@ -29,6 +29,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 10px;
+      width: 261px;
       img {
         margin-right: 10px;
       }
@@ -38,7 +39,7 @@
         color: black;
       }
       &:hover {
-        background: #fb8333;
+        background: #f8c332;
       }
     }
   }
