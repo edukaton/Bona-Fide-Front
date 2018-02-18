@@ -23,6 +23,10 @@
     background: url('assets/bg.png');
   }
 
+  #app {
+    /* min-height: 100vh; */
+  }
+
   .columns {
     max-width: 1140px;
   }

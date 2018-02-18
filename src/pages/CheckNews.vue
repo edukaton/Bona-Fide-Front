@@ -152,7 +152,7 @@
   $grey2: #686868;
   .checknews {
     margin: 80px auto;
-    .column:nth-of-type(1) > div, h2 {
+    .column:nth-of-type(1) > div, .column:nth-of-type(1) h2 {
       background: white;
       padding: 15px;
     }
