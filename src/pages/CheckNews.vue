@@ -34,8 +34,8 @@
       </div>
       <div class="checknews__row">
         <div class="checkbox">
-          <input type="checkbox" class="big" :checked="properRadioAnswer == 1" :disabled="properRadioAnswer != 1">
-          <h3 class="checknews__h" :class="{done: properRadioAnswer == 1}">Jaki jest cel podanej wiadomości?</h3>
+          <input type="checkbox" class="big" :checked="radioQuestion == radioAnswer" :disabled="radioQuestion != radioAnswer">
+          <h3 class="checknews__h" :class="{done: radioQuestion == radioAnswer}">Jaki jest cel podanej wiadomości?</h3>
         </div>
         <div class="checknews__showhide" @click="moreInfo2 = !moreInfo2">
           {{ (!moreInfo2) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
@@ -51,24 +51,24 @@
         <div class="checknews__smallchecks">
           <div class="control">
             <label class="radio">
-              <input type="radio" name="answer" v-model="properRadioAnswer" :value="0"> Informowanie
+              <input type="radio" name="answer" v-model="radioQuestion" :value="0"> Informowanie
             </label>
             <label class="radio">
-              <input type="radio" name="answer" v-model="properRadioAnswer" :value="1"> Wzbudzanie emocji
+              <input type="radio" name="answer" v-model="radioQuestion" :value="1"> Wzbudzanie emocji
             </label>
             <label class="radio">
-              <input type="radio" name="answer" v-model="properRadioAnswer" :value="2"> Przekonanie do racji
+              <input type="radio" name="answer" v-model="radioQuestion" :value="2"> Przekonanie do racji
             </label>
             <label class="radio">
-              <input type="radio" name="answer" v-model="properRadioAnswer" :value="3"> Rozrywka
+              <input type="radio" name="answer" v-model="radioQuestion" :value="3"> Rozrywka
             </label>
           </div>
         </div>
       </div>
       <div class="checknews__row">
           <div class="checkbox">
-            <input type="checkbox" class="big" :checked="properSwitch == true" :disabled="properSwitch == false">
-            <h3 class="checknews__h" :class="{done: properSwitch == true}">Czy na stronie są informacje o autorach? (O nas/Kontakt)</h3>
+            <input type="checkbox" class="big" :checked="switchQuestion == switchAnswer" :disabled="switchQuestion == !switchAnswer">
+            <h3 class="checknews__h" :class="{done: switchQuestion == switchAnswer}">Czy na stronie są informacje o autorach? (O nas/Kontakt)</h3>
           </div>
           <div class="checknews__showhide" @click="moreInfo3 = !moreInfo3">
             {{ (!moreInfo3) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
@@ -84,7 +84,7 @@
           <div class="checknews__yesno">
             <div class="field">
               <label for="switchColorDefault">Nie</label>
-              <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" v-model="properSwitch">
+              <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" v-model="switchQuestion">
               <label for="switchColorDefault">Tak</label>
             </div>
           </div>
@@ -116,13 +116,15 @@
         moreInfo2: false,
         moreInfo3: false,
         checkSource: '',
-        properRadioAnswer: null,
-        properSwitch: false
+        radioQuestion: null,
+        switchQuestion: false,
+        radioAnswer: 1,
+        switchAnswer: true
       }
     },
     computed: {
       isExplosion() {
-        if(this.checkSource.length > 5 && this.properRadioAnswer == 1 && this.properSwitch == true) {
+        if(this.checkSource.length > 5 && this.radioQuestion == radioAnswer && this.switchQuestion == switchAnswer) {
           return true;
         }
         return false;
