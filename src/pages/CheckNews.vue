@@ -5,13 +5,13 @@
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
         <div class="checkbox">
-          <input type="checkbox" class="big">
-          <h3 class="checknews__h">Sprawdź źródło informacji.</h3>
+          <input type="checkbox" class="big" :checked="checkSource.length > 5" :disabled="checkSource.length <= 5">
+          <h3 class="checknews__h" :class="{done: checkSource.length > 5}">Sprawdź źródło informacji.</h3>
         </div>
-        <div class="checknews__showhide" @click="checkSourceShow1 = !checkSourceShow1">
-          {{ (!checkSourceShow1) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
+        <div class="checknews__showhide" @click="moreInfo1 = !moreInfo1">
+          {{ (!moreInfo1) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
         </div>
-        <div class="checknews__list" v-if="checkSourceShow1">
+        <div class="checknews__list" v-if="moreInfo1">
           <ol>
             <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
             <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
@@ -26,7 +26,7 @@
           <div class="field-body">
             <div class="field">
               <p class="control">
-                <input class="input" type="email" placeholder="Recipient email">
+                <input class="input" type="text" placeholder="źródło" v-model="checkSource">
               </p>
             </div>
           </div>
@@ -34,13 +34,13 @@
       </div>
       <div class="checknews__row">
         <div class="checkbox">
-          <input type="checkbox" class="big">
-          <h3 class="checknews__h">Jaki jest cel podanej wiadomości?</h3>
+          <input type="checkbox" class="big" :checked="properRadioAnswer == 1" :disabled="properRadioAnswer != 1">
+          <h3 class="checknews__h" :class="{done: properRadioAnswer == 1}">Jaki jest cel podanej wiadomości?</h3>
         </div>
-        <div class="checknews__showhide" @click="checkSourceShow2 = !checkSourceShow2">
-          {{ (!checkSourceShow2) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
+        <div class="checknews__showhide" @click="moreInfo2 = !moreInfo2">
+          {{ (!moreInfo2) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
         </div>
-        <div class="checknews__list" v-if="checkSourceShow2">
+        <div class="checknews__list" v-if="moreInfo2">
           <ol>
             <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
             <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
@@ -51,29 +51,29 @@
         <div class="checknews__smallchecks">
           <div class="control">
             <label class="radio">
-              <input type="radio" name="answer"> Informowanie
+              <input type="radio" name="answer" v-model="properRadioAnswer" :value="0"> Informowanie
             </label>
             <label class="radio">
-              <input type="radio" name="answer"> Wzbudzanie emocji
+              <input type="radio" name="answer" v-model="properRadioAnswer" :value="1"> Wzbudzanie emocji
             </label>
             <label class="radio">
-              <input type="radio" name="answer"> Przekonanie do racji
+              <input type="radio" name="answer" v-model="properRadioAnswer" :value="2"> Przekonanie do racji
             </label>
             <label class="radio">
-              <input type="radio" name="answer"> Rozrywka
+              <input type="radio" name="answer" v-model="properRadioAnswer" :value="3"> Rozrywka
             </label>
           </div>
         </div>
       </div>
       <div class="checknews__row">
           <div class="checkbox">
-            <input type="checkbox" class="big">
-            <h3 class="checknews__h">Czy na stronie są informacje o autorach? (O nas/Kontakt)</h3>
+            <input type="checkbox" class="big" :checked="properSwitch == true" :disabled="properSwitch == false">
+            <h3 class="checknews__h" :class="{done: properSwitch == true}">Czy na stronie są informacje o autorach? (O nas/Kontakt)</h3>
           </div>
-          <div class="checknews__showhide" @click="checkSourceShow3 = !checkSourceShow3">
-            {{ (!checkSourceShow3) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
+          <div class="checknews__showhide" @click="moreInfo3 = !moreInfo3">
+            {{ (!moreInfo3) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
           </div>
-          <div class="checknews__list" v-if="checkSourceShow3">
+          <div class="checknews__list" v-if="moreInfo3">
             <ol>
               <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
               <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
@@ -83,9 +83,9 @@
           </div>
           <div class="checknews__yesno">
             <div class="field">
-              <label for="switchColorDefault">Tak</label>
-              <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" checked="checked">
               <label for="switchColorDefault">Nie</label>
+              <input id="switchColorDefault" type="checkbox" name="switchColorDefault" class="switch" v-model="properSwitch">
+              <label for="switchColorDefault">Tak</label>
             </div>
           </div>
         </div>
@@ -98,6 +98,9 @@
         <DoYouKnow></DoYouKnow>
         <UserBadge></UserBadge>
     </div>
+    <div class="explose" v-if="isExplosion">
+      <img src="@/assets/exp.gif" alt="">
+    </div>
   </section>
 </template>
 
@@ -109,10 +112,26 @@
   export default {
     data() {
       return {
-        checkSourceShow1: true,
-        checkSourceShow2: false,
-        checkSourceShow3: false
+        moreInfo1: true,
+        moreInfo2: false,
+        moreInfo3: false,
+        checkSource: '',
+        properRadioAnswer: null,
+        properSwitch: false
       }
+    },
+    computed: {
+      isExplosion() {
+        if(this.checkSource.length > 5 && this.properRadioAnswer == 1 && this.properSwitch == true) {
+          return true;
+        }
+        return false;
+      }
+    },
+    methods: {
+      // checkSource() {
+      //   console.log('this');
+      // }
     },
     components: {
       Button,
@@ -146,6 +165,9 @@
       display: inline-block;
       font-size: 26px;
       margin-left: 16px;
+      &.done {
+        text-decoration: line-through;
+      }
     }
     &__showhide {
       margin-top: 10px;
@@ -184,10 +206,15 @@
     &__btnsum {
       display: flex;
       justify-content: center;
-      margin-top: 50px;
+      margin: 50px 0 100px;
     }
   }
-
+  .explose {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .title--check {
     color: $grey;
     padding: 5px 0;

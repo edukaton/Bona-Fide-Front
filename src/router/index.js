@@ -6,6 +6,7 @@ import Index from '@/pages/Index'
 
 import AddFakeLink from '@/pages/AddFakeLink'
 import CheckNews from '@/pages/CheckNews'
+import CheckInfo from '@/pages/CheckInfo'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ var routes = [
     path: '/add-fake-news',
     name: 'AddFakeLink',
     component: AddFakeLink
+  },
+  {
+    path: '/quiz-intro',
+    name: 'CheckInfo',
+    component: CheckInfo
   },
   {
     path: '/check',

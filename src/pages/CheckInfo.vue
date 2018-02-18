@@ -1,12 +1,11 @@
 <template>
-    <div class="column is-12">
-        
+    <div>
+        Intro
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
     export default {
-       
+
     }
 </script>
