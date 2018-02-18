@@ -18,6 +18,29 @@
 </script>
 
 <style>
+
+  body {
+    background: url('assets/bg.png');
+  }
+
+  .columns {
+    max-width: 1140px;
+  }
+
+  .doyouknow {
+    background: url('assets/tarcza.png');
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .checknews__tv {
+    background: url('assets/tv.png') !important;
+    background-size: cover !important;
+  }
+
   .slide-enter-active {
     animation: slide-in .2s ease-out forwards;
   }

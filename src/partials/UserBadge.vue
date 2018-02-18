@@ -1,5 +1,5 @@
 <template>
-    <img src="@/assets/medal.png" alt="">
+    <img src="@/assets/ODZNAKI.png" alt="">
 </template>
 
 <script>

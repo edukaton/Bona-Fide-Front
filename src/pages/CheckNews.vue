@@ -1,7 +1,9 @@
 <template>
   <section class="fncont checknews columns">
     <div class="column is-8">
-      <img src="@/assets/articles/article0.png" alt="" class="checknews__img">
+      <div class="checknews__tv">
+        <img src="@/assets/articles/article0.png" alt="" class="checknews__img">
+      </div>
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
         <div class="checkbox">
@@ -94,7 +96,7 @@
         </div>
     </div>
     <div class="column is-4">
-        <RankSmall></RankSmall>
+        <UserAside></UserAside>
         <DoYouKnow></DoYouKnow>
         <UserBadge></UserBadge>
     </div>
@@ -105,7 +107,7 @@
 </template>
 
 <script>
-  import RankSmall from '@/partials/RankSmall';
+  import UserAside from '@/partials/UserAside';
   import DoYouKnow from '@/partials/DoYouKnow';
   import UserBadge from '@/partials/UserBadge';
   import Button from '@/components/Button';
@@ -124,7 +126,7 @@
     },
     computed: {
       isExplosion() {
-        if(this.checkSource.length > 5 && this.radioQuestion == radioAnswer && this.switchQuestion == switchAnswer) {
+        if(this.checkSource.length > 5 && this.radioQuestion == this.radioAnswer && this.switchQuestion == this.switchAnswer) {
           return true;
         }
         return false;
@@ -137,7 +139,7 @@
     },
     components: {
       Button,
-      RankSmall,
+      UserAside,
       DoYouKnow,
       UserBadge
     }
@@ -149,7 +151,24 @@
   $grey: #9d9d9d;
   $grey2: #686868;
   .checknews {
-    margin: 10px auto;
+    margin: 80px auto;
+    .column:nth-of-type(1) > div, h2 {
+      background: white;
+      padding: 15px;
+    }
+    .column:nth-of-type(1) > div:nth-of-type(1) {
+      /* background: transparent; */
+    }
+    &__tv {
+      margin-bottom: 50px;
+      img {
+        display: block;
+        background-size: cover;
+        width: 80%;
+        margin: 0 auto;
+        padding: 80px 0;
+      }
+    }
     &__img {
       margin-bottom: 40px;
     }
@@ -208,7 +227,8 @@
     &__btnsum {
       display: flex;
       justify-content: center;
-      margin: 50px 0 100px;
+      padding: 50px 0 !important;
+      /* margin: 0 0 50px; */
     }
   }
   .explose {

@@ -14,8 +14,8 @@ Vue.use(Router)
 var routes = [
   {
     path: '/',
-    name: 'CheckInfo',
-    component: CheckInfo
+    name: 'CheckNews',
+    component: CheckNews
   },
   {
     path: '/add-fake-news',
