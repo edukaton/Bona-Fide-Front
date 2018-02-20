@@ -18,7 +18,8 @@
             <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
             <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
             <li>Czy źródła są wiarygodne?</li>
-            <li>Lorem ipsum dolor sit amet?</li>
+            <li>Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?</li>
+            <li>Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?</li>
           </ol>
         </div>
         <div class="field is-horizontal checknews__src">
@@ -47,7 +48,8 @@
             <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
             <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
             <li>Czy źródła są wiarygodne?</li>
-            <li>Lorem ipsum dolor sit amet?</li>
+            <li>Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?</li>
+            <li>Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?</li>
           </ol>
         </div>
         <div class="checknews__smallchecks">
@@ -80,7 +82,8 @@
               <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
               <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
               <li>Czy źródła są wiarygodne?</li>
-              <li>Lorem ipsum dolor sit amet?</li>
+              <li>Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?</li>
+              <li>Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?</li>
             </ol>
           </div>
           <div class="checknews__yesno">

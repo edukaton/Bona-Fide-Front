@@ -14,7 +14,7 @@
     data() {
       return {
         actualDataShow: 0,
-        data: ['Ilość lajków pod artykułem NIE ZAWSZE świadczy o jego wiarygodności', 'News 2', 'News3']
+        data: ['Ilość lajków pod artykułem NIE ZAWSZE świadczy o jego wiarygodności', 'FAKE NEWS został okrzyknięty słowem roku 2017', 'W walce z FAKE NEWS pomagają maszyny, ALE najważniejszy jest nadal człowiek', 'Istnieją strony satyryczne które tworzą tylko FAKE NEWSy', 'Istnieją charakterystyczne elementy dla FAKE NEWS: tytuły WIELKIMI LITERAMI, duża liczba wykrzykników']
       }
     }
   }

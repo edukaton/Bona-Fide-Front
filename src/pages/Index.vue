@@ -12,7 +12,7 @@
     export default {
        methods: {
         letsPlay() {
-            this.$router.push('/check')
+            this.$router.push('/postac')
         }
        }
     }

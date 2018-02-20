@@ -7,6 +7,7 @@ import Index from '@/pages/Index'
 import AddFakeLink from '@/pages/AddFakeLink'
 import CheckNews from '@/pages/CheckNews'
 import CheckInfo from '@/pages/CheckInfo'
+import Postac from '@/pages/Postac'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ var routes = [
     path: '/',
     name: 'Index',
     component: Index
+  },
+  {
+    path: '/postac',
+    name: 'Postac',
+    component: Postac
   },
   {
     path: '/add-fake-news',
