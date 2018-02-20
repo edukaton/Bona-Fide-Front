@@ -4,34 +4,7 @@
       <CheckNewsTv imglink="article0.PNG"></CheckNewsTv>
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
-        <div class="checkbox">
-          <input type="checkbox" class="big" :checked="checkSource.length > 5" :disabled="checkSource.length <= 5">
-          <h3 class="checknews__h" :class="{done: checkSource.length > 5}">Sprawdź źródło informacji.</h3>
-        </div>
-        <div class="checknews__showhide" @click="moreInfo1 = !moreInfo1">
-          {{ (!moreInfo1) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
-        </div>
-        <div class="checknews__list" v-if="moreInfo1">
-          <ol>
-            <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
-            <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
-            <li>Czy źródła są wiarygodne?</li>
-            <li>Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?</li>
-            <li>Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?</li>
-          </ol>
-        </div>
-        <div class="field is-horizontal checknews__src">
-          <div class="field-label is-normal">
-            <label class="label">Podaj źródło</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" type="text" placeholder="źródło" v-model="checkSource">
-              </p>
-            </div>
-          </div>
-        </div>
+        <CheckNewsInput :li="tips" lbl="Podaj źródło" placeholder="źródło" answer="1234"></CheckNewsInput>
       </div>
       <div class="checknews__row">
         <div class="checkbox">
@@ -109,18 +82,20 @@
 
 <script>
   import Button from '@/components/Button';
+
   import UserAside from '@/partials/UserAside';
   import DoYouKnow from '@/partials/DoYouKnow';
   import UserBadge from '@/partials/UserBadge';
   import CheckNewsTv from '@/partials/CheckNewsTv';
+  import CheckNewsInput from '@/partials/CheckNewsInput';
+  
 
   export default {
     data() {
       return {
-        moreInfo1: true,
+        tips: ['Czy jesteś w stanie zweryfikować źródło informacji', 'Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)', 'Czy źródła są wiarygodne?', 'Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?', 'Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?'],
         moreInfo2: false,
         moreInfo3: false,
-        checkSource: '',
         radioQuestion: null,
         switchQuestion: false,
         radioAnswer: 1,
@@ -129,9 +104,9 @@
     },
     computed: {
       isExplosion() {
-        if(this.checkSource.length > 5 && this.radioQuestion == this.radioAnswer && this.switchQuestion == this.switchAnswer) {
-          return true;
-        }
+        // if(this.checkSource.length > 5 && this.radioQuestion == this.radioAnswer && this.switchQuestion == this.switchAnswer) {
+        //   return true;
+        // }
         return false;
       }
     },
@@ -143,7 +118,8 @@
       UserAside,
       DoYouKnow,
       UserBadge,
-      CheckNewsTv
+      CheckNewsTv,
+      CheckNewsInput
     }
   }
 
