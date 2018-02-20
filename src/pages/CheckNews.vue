@@ -1,9 +1,7 @@
 <template>
   <section class="fncont checknews columns">
     <div class="column is-8">
-      <div class="checknews__tv">
-        <img src="@/assets/articles/article0.png" alt="" class="checknews__img">
-      </div>
+      <CheckNewsTv imglink="article0.PNG"></CheckNewsTv>
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
         <div class="checkbox">
@@ -110,10 +108,12 @@
 </template>
 
 <script>
+  import Button from '@/components/Button';
   import UserAside from '@/partials/UserAside';
   import DoYouKnow from '@/partials/DoYouKnow';
   import UserBadge from '@/partials/UserBadge';
-  import Button from '@/components/Button';
+  import CheckNewsTv from '@/partials/CheckNewsTv';
+
   export default {
     data() {
       return {
@@ -136,15 +136,14 @@
       }
     },
     methods: {
-      // checkSource() {
-      //   console.log('this');
-      // }
+      
     },
     components: {
       Button,
       UserAside,
       DoYouKnow,
-      UserBadge
+      UserBadge,
+      CheckNewsTv
     }
   }
 
@@ -162,16 +161,7 @@
     .column:nth-of-type(1) > div:nth-of-type(1) {
       /* background: transparent; */
     }
-    &__tv {
-      margin-bottom: 50px;
-      img {
-        display: block;
-        background-size: cover;
-        width: 80%;
-        margin: 0 auto;
-        padding: 80px 0;
-      }
-    }
+    
     &__img {
       margin-bottom: 40px;
     }

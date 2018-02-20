@@ -3,7 +3,10 @@ const state = {
         name: null,
         email: null,
         logged: false,
-        jwt: null
+        jwt: null,
+        points: 0,
+        level: 0,
+        badges: []
     }
 };
 
