@@ -4,41 +4,10 @@
       <CheckNewsTv imglink="article0.PNG"></CheckNewsTv>
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
-        <CheckNewsInput :li="tips" lbl="Podaj źródło" placeholder="źródło" answer="1234"></CheckNewsInput>
+        <CheckNewsInput :li="tips" :inputComponentData="inputComponentData" ></CheckNewsInput>
       </div>
       <div class="checknews__row">
-        <div class="checkbox">
-          <input type="checkbox" class="big" :checked="radioQuestion == radioAnswer" :disabled="radioQuestion != radioAnswer">
-          <h3 class="checknews__h" :class="{done: radioQuestion == radioAnswer}">Jaki jest cel podanej wiadomości?</h3>
-        </div>
-        <div class="checknews__showhide" @click="moreInfo2 = !moreInfo2">
-          {{ (!moreInfo2) ? 'Rozwiń i dowiedz się więcej' : 'Zwiń' }}
-        </div>
-        <div class="checknews__list" v-if="moreInfo2">
-          <ol>
-            <li>Czy jesteś w stanie zweryfikować źródło informacji</li>
-            <li>Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)</li>
-            <li>Czy źródła są wiarygodne?</li>
-            <li>Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?</li>
-            <li>Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?</li>
-          </ol>
-        </div>
-        <div class="checknews__smallchecks">
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="answer" v-model="radioQuestion" :value="0"> Informowanie
-            </label>
-            <label class="radio">
-              <input type="radio" name="answer" v-model="radioQuestion" :value="1"> Wzbudzanie emocji
-            </label>
-            <label class="radio">
-              <input type="radio" name="answer" v-model="radioQuestion" :value="2"> Przekonanie do racji
-            </label>
-            <label class="radio">
-              <input type="radio" name="answer" v-model="radioQuestion" :value="3"> Rozrywka
-            </label>
-          </div>
-        </div>
+        <CheckNewsRadio :li="tips" :radioComponentData="radioComponentData"></CheckNewsRadio>
       </div>
       <div class="checknews__row">
           <div class="checkbox">
@@ -88,17 +57,26 @@
   import UserBadge from '@/partials/UserBadge';
   import CheckNewsTv from '@/partials/CheckNewsTv';
   import CheckNewsInput from '@/partials/CheckNewsInput';
+  import CheckNewsRadio from '@/partials/CheckNewsRadio';
   
 
   export default {
     data() {
       return {
         tips: ['Czy jesteś w stanie zweryfikować źródło informacji', 'Czy ten artykół nie pochodzi ze stron satyrycznych? (np. aszdziennik)', 'Czy źródła są wiarygodne?', 'Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?', 'Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?'],
-        moreInfo2: false,
+        inputComponentData: {
+          question: 'Sprawdź źródło informacji',
+          label: 'Podaj źródło.',
+          placeholder: 'źródło',
+          answer: '123456'
+        },
+        radioComponentData: {
+          question: 'Jaki jest cel podanej wiadomości?',
+          answers: ['Informowanie', 'Wzbudzanie emocji', 'Przekonanie do racji', 'Rozrywka'],
+          goodAnswer: 'Rozrywka'
+        },
         moreInfo3: false,
-        radioQuestion: null,
         switchQuestion: false,
-        radioAnswer: 1,
         switchAnswer: true
       }
     },
@@ -119,7 +97,8 @@
       DoYouKnow,
       UserBadge,
       CheckNewsTv,
-      CheckNewsInput
+      CheckNewsInput,
+      CheckNewsRadio
     }
   }
 
