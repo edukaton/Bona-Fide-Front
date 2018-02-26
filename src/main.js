@@ -10,6 +10,8 @@ import { store } from './store/store'
 // axios
 axios.baseURL = 'http://localhost:1337';
 
+window.playerChooice = 1;
+
 
 Vue.config.productionTip = false
 

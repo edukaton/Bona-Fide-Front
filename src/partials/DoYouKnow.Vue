@@ -14,7 +14,7 @@
     data() {
       return {
         actualDataShow: 0,
-        data: ['Ilość lajków pod artykułem NIE ZAWSZE świadczy o jego wiarygodności', 'News 2', 'News3']
+        data: ['Ilość lajków pod artykułem NIE ZAWSZE świadczy o jego wiarygodności', 'FAKE NEWS został okrzyknięty słowem roku 2017', 'W walce z FAKE NEWS pomagają maszyny, ALE najważniejszy jest nadal człowiek', 'Istnieją strony satyryczne które tworzą tylko FAKE NEWSy', 'Istnieją charakterystyczne elementy dla FAKE NEWS: tytuły WIELKIMI LITERAMI, duża liczba wykrzykników']
       }
     }
   }
@@ -25,11 +25,10 @@
     text-align: center;
     margin: 40px 0 50px;
     padding: 16px;
-    background: #5bd0ff;
     color: white;
     border-radius: 20px;
     position: relative;
-    width: 261px;
+    padding: 0 40px;
     &__h {
       font-size: 30px;
       border-bottom: 1px solid white;
@@ -41,11 +40,12 @@
     }
     &__btn {
       position: absolute;
-      color: #5bd0ff;
+      color: #fbfcfc;
       background: transparent;
       bottom: -22px;
       font-size: 12px;
       cursor: pointer;
+      font-weight: bold;
       &:hover {
         text-decoration: underline;
       }
