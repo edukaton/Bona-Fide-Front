@@ -88,20 +88,23 @@ export default {};
 </script>
 
 <style lang="scss">
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .ui__badge- {
   &wrapper {
     background: url("/static/ui__badge-wrapper.png") no-repeat;
     height: 100%;
   }
   &row {
+    @include flex-align-center;
     &:first-child {
       padding-top: 6em;
     }
     padding-top: 0.25em;
-    display: flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
   }
   &active {
