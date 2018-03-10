@@ -2,8 +2,8 @@
   <div class="postac">
     <div class="postacview">
       <img src="@/assets/wybierz-postac.png" alt="" class="postac__postac">
-      <img src="@/assets/man.png" alt="" class="postac__p postac__man" @click="choose('man')">
-      <img src="@/assets/woman.png" alt="" class="postac__p postac__woman" @click="choose('woman')">
+      <img src="@/assets/ui__hero-male.png" alt="" class="postac__p postac__man" @click="choose('man')">
+      <img src="@/assets/ui__hero-female.png" alt="" class="postac__p postac__woman" @click="choose('woman')">
     </div>
   </div>
 </template>
