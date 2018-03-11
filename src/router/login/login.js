@@ -7,12 +7,12 @@ Vue.use(Router)
 
 export default [
     {
-        path: '/login',
+        path: '/logowanie',
         name: 'Login',
         component: Login
     },
     {
-        path: '/register',
+        path: '/rejestracja',
         name: 'Register',
         component: Register
     }

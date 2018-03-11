@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/Index'
 
-// import loginRoutes from './login/login'
+import loginRoutes from './login/login'
 
 import AddFakeLink from '@/pages/AddFakeLink'
 import CheckNews from '@/pages/CheckNews'
@@ -40,7 +40,7 @@ var routes = [
   }
 ];
 
-// routes.push(...loginRoutes);
+routes.push(...loginRoutes);
 
 export default new Router({
   routes: routes,
