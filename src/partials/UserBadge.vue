@@ -73,12 +73,6 @@
     <div class="ui__badge-row">
       <h4 class="ui__badge-status">Agent wpływu</h4>
     </div>
-    <div class="ui__badge-row">
-      <div class="ui__badge-buttons">
-        <span class="ui__badge-btnPrev"></span>
-        <span class="ui__badge-btnNext"></span>
-      </div>
-    </div>
   </div>
   </div>
 </template>
@@ -97,7 +91,7 @@ export default {};
 .ui__badge- {
   &wrapper {
     background: url("/static/ui__badge-wrapper.png") no-repeat;
-    height: 100%;
+    min-height: 460px;
   }
   &row {
     @include flex-align-center;
@@ -131,7 +125,8 @@ export default {};
     padding-left: 13px;
   }
   &status {
-    // placeholder
+    margin-top: 16px;
+    opacity: 0;
   }
   &buttons {
     padding-top: 20px;

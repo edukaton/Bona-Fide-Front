@@ -21,10 +21,15 @@
 
   body {
     background: url('assets/bg.png');
+    background-size: cover;
   }
 
   #app {
-    /* min-height: 100vh; */
+    padding-bottom: 80px;
+  }
+
+  * {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
   }
 
   .columns {
