@@ -12,7 +12,7 @@
     export default {
        methods: {
         letsPlay() {
-            this.$router.push('/postac')
+            this.$router.push('/logowanie')
         }
        }
     }

@@ -5,7 +5,7 @@
             <form @submit.prevent="loginSubmit">
                 <div class="field">
                     <p class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="Email" required v-model="email">
+                        <input class="input" type="email" placeholder="Email" required v-model="email">
                     </p>
                 </div>
                 <div class="field">

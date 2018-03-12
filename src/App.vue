@@ -4,15 +4,18 @@
     <transition name="slide" mode="out-in">
       <router-view/>
     </transition>
+    <appPopup></appPopup>
   </div>
 </template>
 
 <script>
   import Header from './components/header/Header'
+  import Popup from './partials/Popup'
   export default {
     name: 'App',
     components: {
-      appHeader: Header
+      appHeader: Header,
+      appPopup: Popup
     }
   }
 </script>
