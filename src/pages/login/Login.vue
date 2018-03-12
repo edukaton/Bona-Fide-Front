@@ -5,7 +5,7 @@
             <form @submit.prevent="loginSubmit">
                 <div class="field">
                     <p class="control has-icons-left has-icons-right">
-                        <input class="input" type="text" placeholder="Login" required v-model="email">
+                        <input class="input" type="email" placeholder="Adres email" required v-model="email">
                     </p>
                 </div>
                 <div class="field">
@@ -37,6 +37,7 @@
         methods: {
             loginSubmit() {
                 var _th = this;
+                _th.$router.push('/postac') 
                 axios.post(axios.baseURL + '/auth/local', {
                     identifier: this.email,
                     password: this.password
