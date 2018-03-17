@@ -6,7 +6,6 @@ import loginRoutes from './login/login'
 
 import AddFakeLink from '@/pages/AddFakeLink'
 import CheckNews from '@/pages/CheckNews'
-import CheckInfo from '@/pages/CheckInfo'
 import Postac from '@/pages/Postac'
 
 Vue.use(Router)
@@ -27,11 +26,6 @@ var routes = [
     path: '/add-fake-news',
     name: 'AddFakeLink',
     component: AddFakeLink
-  },
-  {
-    path: '/quiz-intro',
-    name: 'CheckInfo',
-    component: CheckInfo
   },
   {
     path: '/check',
