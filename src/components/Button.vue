@@ -1,13 +1,19 @@
 <template>
-    <button>
+    <button @click="nextQuestion">
+        <i class="fas" :class="arrowclass" v-if="arrowclass === 'fa-angle-left'"></i>
         {{text}}
-        <i class="fas fa-angle-right"></i>
+        <i class="fas" :class="arrowclass" v-if="arrowclass === 'fa-angle-right'"></i>
     </button>
 </template>
 
 <script>
     export default {
-        props: ['text']
+        props: ['text', 'arrowclass'],
+        methods: {
+            nextQuestion() {
+                this.$emit('btnclick');
+            }
+        }
     }
 </script>
 

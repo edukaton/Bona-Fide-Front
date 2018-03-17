@@ -10,7 +10,8 @@
         <CheckNewsRadio :li="fakeNewsQuestionActive.tips" :radioComponentData="fakeNewsQuestionActive.radioComponentData"></CheckNewsRadio>
       </div>
       <div class="checknews__btnsum">
-        <Button text="Następny news" v-if="activeQuestionIndex < lastQuestionIndex"></Button>
+        <Button text="Poprzedni news" arrowclass="fa-angle-left" v-if="activeQuestionIndex > 0" @btnclick="prevQuestion"></Button>
+        <Button text="Następny news" arrowclass="fa-angle-right" v-if="activeQuestionIndex < lastQuestionIndex" @btnclick="nextQuestion"></Button>
       </div>
     </div>
     <div class="column is-4">
@@ -59,7 +60,14 @@
       }
     },
     methods: {
-      
+      nextQuestion() {
+        this.activeQuestionIndex++;
+        this.fakeNewsQuestionActive = this.fakeNewsQuestions[this.activeQuestionIndex];
+      },
+      prevQuestion() {
+        this.activeQuestionIndex--;
+        this.fakeNewsQuestionActive = this.fakeNewsQuestions[this.activeQuestionIndex];
+      }
     },
     components: {
       Button,
