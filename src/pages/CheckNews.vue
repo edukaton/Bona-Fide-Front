@@ -1,16 +1,16 @@
 <template>
   <section class="fncont checknews columns">
     <div class="column is-8">
-      <CheckNewsTv :imglink="imglink"></CheckNewsTv>
+      <CheckNewsTv :imglink="fakeNewsQuestionActive.image"></CheckNewsTv>
       <h2 class="title title--check">Zadania do wykonania:</h2>
       <div class="checknews__row">
-        <CheckNewsInput :li="tips" :inputComponentData="inputComponentData" ></CheckNewsInput>
+        <CheckNewsInput :li="fakeNewsQuestionActive.tips" :inputComponentData="fakeNewsQuestionActive.inputComponentData" ></CheckNewsInput>
       </div>
       <div class="checknews__row">
-        <CheckNewsRadio :li="tips" :radioComponentData="radioComponentData"></CheckNewsRadio>
+        <CheckNewsRadio :li="fakeNewsQuestionActive.tips" :radioComponentData="fakeNewsQuestionActive.radioComponentData"></CheckNewsRadio>
       </div>
       <div class="checknews__btnsum">
-        <Button text="Następny news"></Button>
+        <Button text="Następny news" v-if="activeQuestionIndex < lastQuestionIndex"></Button>
       </div>
     </div>
     <div class="column is-4">
@@ -33,25 +33,22 @@
   import CheckNewsTv from '@/partials/CheckNewsTv';
   import CheckNewsInput from '@/partials/CheckNewsInput';
   import CheckNewsRadio from '@/partials/CheckNewsRadio';
-  
+
+  import NewsData1 from '@/data/NewsDataKat1.js';  
 
   export default {
     data() {
       return {
-        imglink: 'article0.PNG',
-        tips: ['Czy jesteś w stanie zweryfikować źródło informacji', 'Czy ten artykuł nie pochodzi ze stron satyrycznych? (np. aszdziennik)', 'Czy źródła są wiarygodne?', 'Jak dotarłeś do tej informacji? Prywatna wiadomość / newsfeed na facebooku / regularnie odwiedzana strona?', 'Jakie ogólne wrażenie robi strona www? Starannie wykonana / amatorska / Czy jest na niej dużo reklam?'],
-        inputComponentData: {
-          question: 'Sprawdź źródło informacji',
-          label: 'Podaj źródło.',
-          placeholder: 'źródło',
-          answer: '123456'
-        },
-        radioComponentData: {
-          question: 'Jaki jest cel podanej wiadomości?',
-          answers: ['Informowanie', 'Wzbudzanie emocji', 'Przekonanie do racji', 'Rozrywka'],
-          goodAnswer: 'Rozrywka'
-        }
+        fakeNewsQuestions: [],
+        fakeNewsQuestionActive: {},
+        activeQuestionIndex: 0,
+        lastQuestionIndex: 0
       }
+    },
+    created() {
+      this.fakeNewsQuestions = NewsData1();
+      this.fakeNewsQuestionActive = this.fakeNewsQuestions[this.activeQuestionIndex];
+      this.lastQuestionIndex = this.fakeNewsQuestions.length-1
     },
     computed: {
       isExplosion() {
