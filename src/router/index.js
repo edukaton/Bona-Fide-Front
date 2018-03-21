@@ -7,6 +7,7 @@ import loginRoutes from './login/login'
 import AddFakeLink from '@/pages/AddFakeLink'
 import CheckNews from '@/pages/CheckNews'
 import Postac from '@/pages/Postac'
+import Categorys from '@/pages/Categorys'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ var routes = [
     path: '/check',
     name: 'CheckNews',
     component: CheckNews
+  },
+  {
+    path: '/kategorie',
+    name: 'Categorys',
+    component: Categorys
   }
 ];
 
